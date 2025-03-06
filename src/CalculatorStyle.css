@@ -22,6 +22,7 @@ body{  background-color: aqua;}
     font-size: 2rem;
     font-family: monospace;
     border-radius: 2.5rem;
+    cursor: pointer;
 }
 .btn:hover{
     animation-duration: 0.5s;
