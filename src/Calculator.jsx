@@ -24,7 +24,7 @@ let sign_positiin=useRef(0);
           // let x= first_number.current + Number(input.slice(sign_positiin.current,input.length));
           let x= operation(first_number.current,
              Number(input.slice(sign_positiin.current,input.length)),
-             "-")
+             input[sign_positiin.current-1])
            first_number.current=x;
           // console.log("x=",x,"    y=  ",y, "     i=", sign_positiin.current);
            setInput(x);
@@ -41,12 +41,19 @@ let sign_positiin=useRef(0);
 
 
    function operation(number1,number2, operator){
-      
+      console.log(operator)
      switch (operator){
       case "+":
        return number1 + number2;
        case "-":
        return number1 - number2;
+       case "X":
+        return number1 * number2;
+        case "/":
+          return number1 / number2;
+          case "%":
+            return number1 % number2;
+
      }
 
    }
