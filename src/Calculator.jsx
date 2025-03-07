@@ -20,14 +20,18 @@ function Calculator() {
         setInput(input + buttons[index]);
 
       } else {
-
-
+         
+       
         let x = operation(first_number.current,
           Number(input.slice(sign_positiin.current+1, input.length)),
           input[sign_positiin.current])
+
         first_number.current = x;
 
-        setInput(JSON.stringify(x));
+          x= JSON.stringify(x)+buttons[index];
+
+         sign_positiin.current=x.length-1;
+        setInput(x);
       }
 
 
@@ -41,7 +45,7 @@ function Calculator() {
 
 
   function operation(number1, number2, operator) {
-    console.log(operator)
+    
     switch (operator) {
       case "+":
         return number1 + number2;
