@@ -21,7 +21,10 @@ let sign_positiin=useRef(0);
         
         }else{
          
-           let x= first_number.current + Number(input.slice(sign_positiin.current,input.length));
+          // let x= first_number.current + Number(input.slice(sign_positiin.current,input.length));
+          let x= operation(first_number.current,
+             Number(input.slice(sign_positiin.current,input.length)),
+             "-")
            first_number.current=x;
           // console.log("x=",x,"    y=  ",y, "     i=", sign_positiin.current);
            setInput(x);
@@ -36,6 +39,17 @@ let sign_positiin=useRef(0);
    }
 
 
+
+   function operation(number1,number2, operator){
+      
+     switch (operator){
+      case "+":
+       return number1 + number2;
+       case "-":
+       return number1 - number2;
+     }
+
+   }
 
  let buttons=["C","()","%","/",7,8,9,"X",4,5,6,"-",1,2,3,"+","+/-",0,".","="];
 
