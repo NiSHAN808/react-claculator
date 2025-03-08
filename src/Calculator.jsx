@@ -9,7 +9,14 @@ function Calculator() {
   let [input, setInput] = useState("");
 
   function handleBtnClick(index) {
-
+    console.log(typeof(input));
+     if(buttons[index] === "C") {
+      console.log("clear instruction");
+         setInput("");    // if we leave() without "" then the input type will be undefined so later we can't add value on it
+        first_number.current=undefined;
+         sign_positiin.current=0;
+         return ;
+     }
     if (typeof (buttons[index]) === "string") {
 
    console.log("input is string")
@@ -26,11 +33,18 @@ function Calculator() {
           Number(input.slice(sign_positiin.current+1, input.length)),
           input[sign_positiin.current])
 
-        first_number.current = x;
+       // first_number.current = x;
 
-          x= JSON.stringify(x)+buttons[index];
-
-         sign_positiin.current=x.length-1;
+          x= JSON.stringify(x);
+        //  x=x+buttons[index];
+        // sign_positiin.current=x.length-1;
+         if (buttons[index] !== "="){
+          x=x+buttons[index];
+          sign_positiin.current=x.length-1;
+          first_number.current = x;
+         }else{
+        //  first_number=undefined;
+         }
         setInput(x);
       }
 
