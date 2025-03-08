@@ -9,42 +9,38 @@ function Calculator() {
   let [input, setInput] = useState("");
 
   function handleBtnClick(index) {
-    console.log(typeof(input));
-     if(buttons[index] === "C") {
+
+    if (buttons[index] === "C") {
       console.log("clear instruction");
-         setInput("");    // if we leave() without "" then the input type will be undefined so later we can't add value on it
-        first_number.current=undefined;
-         sign_positiin.current=0;
-         return ;
-     }
+      setInput("");    // if we leave() without "" then the input type will be undefined so later we can't add value on it
+      first_number.current = undefined;
+      sign_positiin.current = 0;
+      return;
+    }
+
     if (typeof (buttons[index]) === "string") {
 
-   console.log("input is string")
+    
       if (first_number.current === undefined) {
         first_number.current = Number(input);
-
         sign_positiin.current = input.length;
         setInput(input + buttons[index]);
 
       } else {
-         
-       
-        let x = operation(first_number.current,
-          Number(input.slice(sign_positiin.current+1, input.length)),
+          let x = operation(first_number.current,
+          Number(input.slice(sign_positiin.current + 1, input.length)),
           input[sign_positiin.current])
 
-       // first_number.current = x;
+          x = JSON.stringify(x);
 
-          x= JSON.stringify(x);
-        //  x=x+buttons[index];
-        // sign_positiin.current=x.length-1;
-         if (buttons[index] !== "="){
-          x=x+buttons[index];
-          sign_positiin.current=x.length-1;
+        if (buttons[index] !== "=") {
+          x = x + buttons[index];
+          sign_positiin.current = x.length - 1;
           first_number.current = x;
-         }else{
-         first_number.current=undefined;
-         }
+        } else {
+          first_number.current = undefined;
+        }
+        
         setInput(x);
       }
 
@@ -59,7 +55,7 @@ function Calculator() {
 
 
   function operation(number1, number2, operator) {
-    
+
     switch (operator) {
       case "+":
         return number1 + number2;
