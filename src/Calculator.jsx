@@ -43,7 +43,7 @@ function Calculator() {
           sign_positiin.current=x.length-1;
           first_number.current = x;
          }else{
-        //  first_number=undefined;
+         first_number.current=undefined;
          }
         setInput(x);
       }
