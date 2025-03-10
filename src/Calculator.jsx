@@ -7,11 +7,11 @@ function Calculator() {
   var first_number = useRef(undefined);
   let sign_positiin = useRef(0);
   let [input, setInput] = useState("");
-
+  let [history, sethistory] = useState("");
   function handleBtnClick(index) {
 
     if (buttons[index] === "C") {
-      console.log("clear instruction");
+      
       setInput("");    // if we leave() without "" then the input type will be undefined so later we can't add value on it
       first_number.current = undefined;
       sign_positiin.current = 0;
@@ -40,6 +40,7 @@ function Calculator() {
         } else {
           first_number.current = undefined;
         }
+        sethistory(input);
         
         setInput(x);
       }
@@ -78,8 +79,12 @@ function Calculator() {
 
   return (
     <>
-      <div className="outBox">{input}</div>
-      <div className="buttonsOutBox">
+    <div className="calcBox">
+      <div className="outBox">
+        <div className="historyBox">{history}</div>
+        <div className="calculationBox">{input}</div>
+          </div>
+          <div className="buttonsOutBox">
         {buttons.map((button, index) =>
           <div className="btn" key={index}
             onClick={() => handleBtnClick(index)}>
@@ -88,7 +93,7 @@ function Calculator() {
 
 
       </div>
-
+    </div>
     </>
   )
 

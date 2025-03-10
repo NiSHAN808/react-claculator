@@ -9,9 +9,38 @@
     justify-content: center;
     align-items: center;
 }
+.calcBox{
+    background-color: #77aeae;
+   
+    padding: 1rem;
+    border-radius: 3rem;
 
+}
 body{  background-color: aqua;}
+.historyBox{
 
+display: inline-block;
+height: 3.3rem;
+width :100%;
+display: flex;
+justify-content: end;
+align-items: end;
+}
+.calculationBox{
+    height: 6.7rem;
+font-size: 3rem;
+display: flex;
+justify-content: end;
+align-items: end;
+padding:2rem;
+}
+.outBox{
+   
+    background-color: blanchedalmond;
+    height: 10rem;
+    width :22rem;
+    border-radius: 2.4rem;
+}
 .btn{
     display: inline-flex;
     align-items: center;
@@ -25,20 +54,14 @@ body{  background-color: aqua;}
     cursor: pointer;
 }
 .btn:hover{
-    animation-duration: 0.5s;
-    animation-delay: 0s;
+   
  background-color: aquamarine;
 }
-.buttonsOutBox {
+.buttonsOutBox {  margin-top: 1rem;
     display: grid;
         grid-template-columns: repeat(4, auto);
         grid-auto-flow: row;
         grid-gap: 5px;
-        background-color: red;
+        
 
-}
-.outBox{
-    background-color: blanchedalmond;
-    height: 10rem;
-    width :22rem
 }
