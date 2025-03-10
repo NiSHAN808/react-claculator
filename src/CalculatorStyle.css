@@ -20,19 +20,20 @@ body{  background-color: aqua;}
 .historyBox{
 
 display: inline-block;
-height: 3.3rem;
+height: 3.8rem;
 width :100%;
 display: flex;
 justify-content: end;
 align-items: end;
+padding-right: 1rem;
 }
 .calculationBox{
-    height: 6.7rem;
+    height: 6.2rem;
 font-size: 3rem;
 display: flex;
 justify-content: end;
 align-items: end;
-padding:2rem;
+padding-right: 1rem;
 }
 .outBox{
    
