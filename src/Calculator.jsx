@@ -17,14 +17,17 @@ function Calculator() {
       sign_positiin.current = 0;
       return;
     }
-
+    if (buttons[index] === "<") {
+      
+      setInput(input.slice(0,input.length-1));  return;
+    }
     if (typeof (buttons[index]) === "string") {
 
     
       if (first_number.current === undefined) {
         first_number.current = Number(input);
         sign_positiin.current = input.length;
-        setInput(input + buttons[index]);
+        setInput(input + buttons[index] );
 
       } else {
           let x = operation(first_number.current,
@@ -34,7 +37,7 @@ function Calculator() {
           x = JSON.stringify(x);
 
         if (buttons[index] !== "=") {
-          x = x + buttons[index];
+         x = x + buttons[index];
           sign_positiin.current = x.length - 1;
           first_number.current = x;
         } else {
@@ -73,7 +76,7 @@ function Calculator() {
 
   }
 
-  let buttons = ["C", "()", "%", "/", 7, 8, 9, "X", 4, 5, 6, "-", 1, 2, 3, "+", "+/-", 0, ".", "="];
+  let buttons = ["C", "<", "%", "/", 7, 8, 9, "X", 4, 5, 6, "-", 1, 2, 3, "+", "", 0, ".", "="];
 
 
 
